@@ -1,15 +1,16 @@
 import './todo.css'
 import { RxCross2 } from "react-icons/rx";
 import store from './constant/constant'
-import { useReducer } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 function Todo()
 {
-    
+    const inputRef = useRef()
     const [todoList,dispatchTodoList] = useReducer(store.reducer,store.initState)
-    console.log(todoList.value)
     const handelSubmit = ()=>
     {
         dispatchTodoList(store.ADD_ACTION)
+        dispatchTodoList(store.ONCHANGE_ACTION(""))
+        inputRef.current.focus()
     }
     const handleDelete = (e)=>
     {
@@ -17,6 +18,15 @@ function Todo()
         dispatchTodoList(store.DELETE_ACTION(e.target.parentNode.id))
     }
 
+    const handleEnter = (event)=>
+    {
+        if(event.key=="Enter")
+        {
+            dispatchTodoList(store.ADD_ACTION)
+            dispatchTodoList(store.ONCHANGE_ACTION(""))
+            inputRef.current.focus()
+        }
+    }
 
     return(
         <div className='todo-wraper'>
@@ -24,7 +34,15 @@ function Todo()
                 <h1>Todo</h1>
             </div>
             <div className='todo-input-container'>
-                <input value={todoList.value} onChange={e=>dispatchTodoList(store.ONCHANGE_ACTION(e.target.value))} type="text" placeholder='Add some thing you wanna do...'/>
+                <input 
+                ref={inputRef} 
+                value={todoList.value}
+                onChange={
+                    e=>dispatchTodoList(store.ONCHANGE_ACTION(e.target.value))} 
+                    type="text" 
+                    placeholder='Add some thing you wanna do...'
+                    onKeyDown={handleEnter}
+                />
                 <button onClick={handelSubmit}>Add</button>
             </div>
             <div className='todo-list-container'>

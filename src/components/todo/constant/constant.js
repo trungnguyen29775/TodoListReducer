@@ -38,7 +38,7 @@ const reducer = (state,action)=>
             {
                 if(state.value)
                     return {
-                        value:"",
+                        ...state,
                         todoList:[...state.todoList,state.value]
                     }
                 else
