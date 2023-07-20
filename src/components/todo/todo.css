@@ -1,0 +1,122 @@
+.todo-wraper
+{
+    height: 90%;
+    width: 80%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    box-sizing: border-box;
+    --pink:#FFC0CB;   
+    --purple-darker:#FF69B4;
+    --purple:#BA55D3;
+    --purple-darker:#9370DB;
+    --purple-darkest:#7B68EE;
+
+}
+.todo-header-container{
+   
+    display: flex;
+    color: var(--purple-darkest);
+}
+.todo-input-container
+{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    height: 50px;
+    border: 2px solid var(--purple);
+    box-sizing: border-box;
+    padding-left: 25px;
+    justify-content: space-between;
+    background-color:#FFFF;
+    font-weight: 500;
+    font-size: 15px;
+}
+.todo-input-container input
+
+{
+    width: 80%;
+    outline: none;
+    border: 0;
+    background-color: inherit;
+    color: var(--purple-darkest);
+    font-weight: 600;
+    font-size: 15px;
+}
+.todo-input-container button
+{
+    background-color:inherit;
+    height: 100%;
+    width: 75px;
+    border: 0px;
+    padding: 0;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--purple-darkest);
+    border-radius: 25px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+
+}
+.todo-input-container button:hover
+{
+    background-color:#FFC0CB ;
+    cursor: pointer;
+}
+.todo-list-container
+{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+
+}
+.todo-list-item-container
+{
+    width: 100%;
+    background-color: #FFFF;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--purple-darkest);
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 3px solid var(--purple);
+
+}
+.todo-list-item-icon-container
+{
+    height: 100%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    margin-right: -0.8px;
+    box-sizing: unset;
+}
+.todo-list-item-icon-container:hover
+{
+    cursor: pointer;
+    background-color: #FFC0CB;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+.name-author
+{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: var(--purple-darker);
+    font-weight: 500;
+}
